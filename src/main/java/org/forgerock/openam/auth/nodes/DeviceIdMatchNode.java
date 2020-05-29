@@ -110,6 +110,7 @@ public class DeviceIdMatchNode extends AbstractDecisionNode {
 				if (result.isPresent()) {
 					JsonValue clientDeviceProfileJson = JsonValueBuilder.toJsonValue(result.get());
 					clientDeviceProfileJson.add("clientDeviceIpAddress", context.request.clientIp);
+					newSharedState.put("clientDeviceProfile", clientDeviceProfileJson.toString());
 					logger.trace("DeviceIdMatchNode : Client Script JSON : {}", clientDeviceProfileJson);
 
 					devices = dao.getDeviceProfiles(userName, realm.asPath());
