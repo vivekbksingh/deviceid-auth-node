@@ -755,7 +755,7 @@ function matchDevicePrint() {
                         lastSelectedDate;
                     expirationDate.setDate(expirationDate.getDate() - config.profileExpiration);
 
-                    lastSelectedDate = new Date(devicePrintProfile.lastSelectedDate);
+                    lastSelectedDate = new Date(JSON.parse(org.forgerock.json.JsonValue.json(devicePrintProfile)).lastSelectedDate);
 
                     return lastSelectedDate < expirationDate;
                 }
